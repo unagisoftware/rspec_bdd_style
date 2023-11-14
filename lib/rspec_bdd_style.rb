@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module RspecBddStyle
-  PPREFIXES = %w[given when and then].freeze
+  PREFIXES = %w[given when and then].freeze
 
   PREFIXES.each do |prefix|
     define_method("#{prefix}_method_missing") do |method_name, *args, &block|
