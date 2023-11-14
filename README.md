@@ -29,28 +29,34 @@ require 'rspec_bdd_style'
 Now you can use the BDD-style methods in your tests:
 
 ```ruby
-it 'should do something' do
-  given_i_visit_a_page
-  when_i_click_the_button
-  and_i_do_something
-  then_i_expect_a_result
+it '...' do
+  given_i_am_fabian_show
+  when_i_invite_rosalia_to_dance
+  then_she_revolea_upside_down
+end
+
+it '...' do
+  given_i_am_fabian_show
+  when_i_am_dancing
+  and_i_invite_rosalia_to_dance
+  then_she_revolea_upside_down
 end
 
 private 
 
-def visit_a_page
+def i_am_fabian_show
   ...
 end
 
-def click_the_button
+def i_invite_rosalia_to_dance
   ...
 end
 
-def do_something
+def i_am_dancing
   ...
 end
 
-def expect_a_result
+def she_revolea_upside_down
   ...
 end
 ```
