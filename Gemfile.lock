@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    rspec_bdd_style (1.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  rspec_bdd_style!
+
+BUNDLED WITH
+   2.4.21
