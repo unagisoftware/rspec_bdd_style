@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'rspec-bdd-style'
-  s.version       = '1.0.0'
+  s.version       = '1.0.2'
   s.authors       = ['Agustín Serena']
   s.email         = ['aserena92@gmail.com']
   s.summary       = 'A set of utilities to enhance readability in RSpec BDD-style specifications.'

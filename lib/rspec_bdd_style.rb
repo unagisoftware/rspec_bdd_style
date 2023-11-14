@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 module RspecBddStyle
-  PREFIXES = %w[given_i when_i and_i then_i].freeze
+  PPREFIXES = %w[given when and then].freeze
 
   PREFIXES.each do |prefix|
     define_method("#{prefix}_method_missing") do |method_name, *args, &block|
       action, action_name = parse_method_name(method_name)
 
-      if action && respond_to?(action_name, true)
+      if PREFIXES.include?(action)
         if args.first.is_a?(Hash)
           send(action_name, **args.first, &block)
         else
           send(action_name, *args, &block)
         end
       else
-        super
+        super(method_name, *args, &block)
       end
     end
   end
@@ -26,11 +26,11 @@ module RspecBddStyle
       return send("#{prefix}_method_missing", method_name, *args, &block) if method_name.to_s.start_with?("#{prefix}_")
     end
 
-    super
+    super(method_name, *args, &block)
   end
 
-  def respond_to_missing?(*)
-    true
+  def respond_to_missing?(method_name, include_private = false)
+    super(method_name, include_private)
   end
 
   def parse_method_name(method_name)
